@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	r := gin.Default()
@@ -19,6 +23,14 @@ func main() {
 			"tag":  "<br>",
 		}
 		c.AsciiJSON(200, data)
+	})
+
+	// post
+	r.POST("/post", func(c *gin.Context) {
+		id := c.Query("id")
+		page := c.DefaultQuery("page", "0")
+		name := c.PostForm("name")
+		fmt.Printf("id: %s; page: %s; name: %s; message: %s", id, page, name)
 	})
 	r.Run(":8000")
 }
