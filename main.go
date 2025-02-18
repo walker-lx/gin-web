@@ -30,6 +30,10 @@ func main() {
 		id := c.Query("id")
 		page := c.DefaultQuery("page", "0")
 		name := c.PostForm("name")
+		c.JSON(200, gin.H{
+			"name": name,
+			"page": page,
+		})
 		fmt.Printf("id: %s; page: %s; name: %s; message: %s", id, page, name)
 	})
 	r.Run(":8000")
