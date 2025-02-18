@@ -34,7 +34,7 @@ func main() {
 			"name": name,
 			"page": page,
 		})
-		fmt.Printf("id: %s; page: %s; name: %s; message: %s", id, page, name)
+		fmt.Printf("id: %s; page: %s; name: %s; ", id, page, name)
 	})
 	r.Run(":8000")
 }
